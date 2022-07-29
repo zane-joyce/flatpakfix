@@ -79,6 +79,7 @@ jobs:
       run: make -C _build check -j $(getconf _NPROCESSORS_ONLN)
       env:
         ASAN_OPTIONS: detect_leaks=0 # Right now we're not fully clean, but this gets us use-after-free etc
+        LC_ALL: en_US.UTF-8
     - name: Collect overall test logs on failure
       if: failure()
       run: mv _build/test-suite.log test-logs/ || true
@@ -145,6 +146,7 @@ jobs:
       run: make -C _build check -j $(getconf _NPROCESSORS_ONLN)
       env:
         ASAN_OPTIONS: detect_leaks=0 # Right now we're not fully clean, but this gets us use-after-free etc
+        LC_ALL: en_US.UTF-8
     - name: Collect overall test logs on failure
       if: failure()
       run: mv _build/test-suite.log test-logs/ || true
