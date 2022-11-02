@@ -3355,8 +3355,8 @@ setup_seccomp (FlatpakBwrap   *bwrap,
       /* modify_ldt is a historic source of interesting information leaks,
        * so it's disabled as a hardening measure.
        * However, it is required to run old 16-bit applications
-       * as well as some Wine patches, so it's allowed in multiarch. */
-      int scall = SCMP_SYS (modify_ldt);
+       * as well as some Wine patches, so it's allowed in multiarch.
+      int scall = SCMP_SYS (modify_ldt);*/
       r = seccomp_rule_add (seccomp, SCMP_ACT_ERRNO (EPERM), scall, 0);
 
       /* See above for the meaning of EFAULT. */
